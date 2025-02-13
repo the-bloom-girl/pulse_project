@@ -1,7 +1,7 @@
 .promo {
     min-height: 650px;
     padding: 20px 0 90px 0;
-    background: url('../../image/bg1.jpg') center (center/cover) no-repeat;
+    background: url('../image/bg1.jpg') center (center/cover) no-repeat;
     &__wrapper {
         display: flex;
         flex-direction: column;
@@ -35,7 +35,7 @@
         margin-bottom: 65px;
     }
      &__icon {
-        // display: flex;
+        // display: flex; мій варіант 1
         // flex-direction: column;
         // align-items: center;
         width: 106px;
