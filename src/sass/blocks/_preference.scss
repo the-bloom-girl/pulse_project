@@ -13,6 +13,10 @@
     &__list {
         display: flex;
         justify-content: space-between;
+             @media (max-width: 768px) {
+            padding-left: 10px;
+            padding-right: 10px;
+  }
     }
     &__item {
         width: 280px;
@@ -22,6 +26,15 @@
         justify-content: center;
         align-items:center;
         text-align: center;
+              @media (max-width: 768px) {
+            width: 200px;
+  }
+           @media (max-width: 670px) {
+            width: 180px;
+  }
+       @media (max-width: 600px) {
+            width: 150px;
+  }
         h3 {
              text-transform: uppercase;
              margin-bottom: 20px;
