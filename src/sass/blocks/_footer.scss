@@ -1,0 +1,39 @@
+.footer {
+    height: 630px;
+    position: relative;
+&__info {
+    // padding: 50px 54px 54px 56px;
+    position: absolute;
+    top:0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: $main-color;
+    min-width: 460px;
+    height: 270px;
+    color: azure;
+    text-align: center;
+    }
+&__addr {
+    font-size: 20px;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 36px;
+    margin-top: 50px;
+}
+&__telephone {
+    color: azure;
+    &:hover {
+        color: azure;
+    }
+}
+&__social{
+    margin-top: 36px;
+    margin-bottom: 56px;
+    &-item {
+        margin-left: 15px;
+        &:hover {
+            background-color: azure;
+        }
+    }
+}
+}

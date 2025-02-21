@@ -1,19 +1,20 @@
-@use 'variables' as *;
+@use './variables' as *;
+@use './blocks/promo';
+@use './blocks/header';
+@use './blocks/buttons';
+@use './blocks/preference';
+@use './blocks/forms';
+@use './blocks/consultation';
+@use './blocks/slider';
+@use './blocks/catalog';
+@use './blocks/reviews';
+@use './blocks/footer';
 
 * {
     font-family: 'Museo Sans Cyrl', sans-serif;
 }
 .container {
+    position: relative;
     max-width: 950px;
     margin: 0 auto;
 }
-@import 'blocks/promo';
-@import 'blocks/header';
-@import 'blocks/buttons';
-@import 'blocks/preference';
-@import 'blocks/forms';
-@import 'blocks/consultation';
-
-
-
-

@@ -1,0 +1,37 @@
+@use '../variables' as *;
+
+.slider {
+    padding: 80px 0;
+    position: relative;
+    background-color: #fff;
+    &__inner {
+        margin: 0 auto;
+        width: 750px;
+        height: auto;
+        //  img {
+        //   width: 33%;
+        //  }
+    }
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: -66px;
+      border: none;
+      background-color:#fff;
+      img {
+        width: 30px;
+        height: 50px;
+      }
+    }
+    .next {
+      right: -66px;
+      left: auto;
+    }
+
+    // .tns-item {
+    //   display: block;
+    //   margin: 0 auto;
+    // }
+
+ }
