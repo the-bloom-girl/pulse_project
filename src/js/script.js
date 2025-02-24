@@ -49,6 +49,26 @@ $(document).ready(() => {
 
 	toggleSlide('.catalog-item__link');
 	toggleSlide('.catalog-item__back');
+
+	// MODAL
+	$('[data-modal="consultation"]').on('click', () => {
+		$('.overlay, #consultation').fadeIn('slow');
+	});
+	$('.modal__close').on('click', () => {
+		$('.overlay, #consultation, #order, #thanks').fadeOut('slow');
+	});
+
+	$('.button_mini').each(function (i) {
+		$(this).on('click', () => {
+			$('#order, .modal__descr').text($('.catalog-item__subtitle').eq(i).text());
+		});
+	});
+
+	$('.button_mini').on('click', () => {
+		$('.overlay, #order').fadeIn('slow');
+	});
+
+	// $('input[name=phone]').mask('+38 (096) 000 00 00');
 });
 
 // Const slider = ({
