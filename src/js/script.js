@@ -1,3 +1,6 @@
+// Const {name} = require('commander');
+// const {required} = require('yargs');
+
 $(document).ready(() => {
 	$('.slider__inner').slick({
 		speed: 1200,
@@ -21,22 +24,6 @@ $(document).ready(() => {
 			.closest('div.container').find('div.catalog__content').removeClass('catalog__content_active').eq($(this).index()).addClass('catalog__content_active');
 	});
 
-	// $('.catalog-item__link').each(function (i) {
-	// 	$(this).on('click', e => {
-	// 		e.preventDefault();
-	// 		$('.catalog-item__content').eq(i).toggleClass('.catalog-item__content_active');
-	// 		$('.catalog-item__list').toggleClass('.catalog-item__list_active');
-	// 	});
-	// });
-
-	// $('.catalog-item__back').each(function (i) {
-	// 	$(this).on('click', e => {
-	// 		e.preventDefault();
-	// 		$('.catalog-item__content').eq(i).toggleClass('.catalog-item__content_active');
-	// 		$('.catalog-item__list').toggleClass('.catalog-item__list_active');
-	// 	});
-	// });
-
 	function toggleSlide(item) {
 		$(item).each(function (i) {
 			$(this).on('click', e => {
@@ -58,33 +45,71 @@ $(document).ready(() => {
 		$('.overlay, #consultation, #order, #thanks').fadeOut('slow');
 	});
 
-	$('.button_mini').each(function (i) {
-		$(this).on('click', () => {
-			$('#order, .modal__descr').text($('.catalog-item__subtitle').eq(i).text());
-		});
-	});
+	// $('.button_mini').each(function (i) {
+	// 	$(this).on('click', () => {
+	// 		$('#order, .modal__descr').text($('.catalog-item__subtitle').eq(i).text());
+	// 	});
+	// });
 
 	$('.button_mini').on('click', () => {
 		$('.overlay, #order').fadeIn('slow');
 	});
 
-	// $('input[name=phone]').mask('+38 (096) 000 00 00');
+	$('#order form').validate();
+	 function validateForms(form) {
+		$(form).validate({
+			rules: {
+				name: {
+					required: true,
+					minlength: 2,
+				},
+				phone: 'required',
+				email: {
+					required: true,
+					email: true,
+				},
+			},
+			messages: {
+				name: {
+					required: 'Пожалуйста, введите свое имя',
+					minlength: jQuery.validator.format('Введите {0} символа!'),
+				},
+				phone: 'Пожалуйста, введите свой номер телефона',
+				email: {
+					required: 'Пожалуйста, введите свою почту',
+					email: 'Неправильно введен адрес почты',
+				},
+			},
+		});
+	}
+
+	validateForms('#consultation-form');
+	validateForms('#consultation form');
+	validateForms('#order form');
+
+	$('input[name=phone]').mask('+7 (999) 999-99-99');
+
+	// Smooth scrool
+	$(window).scroll(function () {
+		if ($(this).scrollTop() > 1600) {
+			$('.pageup').fadeIn();
+		} else {
+			$('pageup').fadeOut();
+		}
+	});
+	$('a[href=#\']').click(function () {
+		const _href = $(this).attr('href');
+		$('html, body').animate({scrollTop: $(_href).offset().top + 'px'});
+	});
+
+	// Const element = document.querySelector('.header__animete');
+	// element.addEventListener('mouseenter', () => {
+	// 	element.classList.add('animate__animated', 'animate__bounce');
+	// });
+
+	// element.addEventListener('mouseleave', () => {
+	// 	element.classList.remove('animate__animated', 'animate__bounce');
+	// });
+	 new WOW().init();
 });
-
-// Const slider = ({
-// 	container: '.slider__inner',
-// 	items: 1,
-// 	slideBy: 'page',
-// 	autoplay: false,
-// 	controls: false,
-// 	// Nav: false,
-// });
-
-// document.querySelector('.prev').onclick = function () {
-// 	slider.goTo('prev');
-// };
-
-// document.querySelector('.next').onclick = function () {
-// 	slider.goTo('next');
-// };
 
